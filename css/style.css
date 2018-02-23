@@ -68,7 +68,7 @@ p#errors{
 
 .welcome{
     margin-bottom: 10px;
-    /*display: none;*/
+    display: none;
 }
 
 .welcome span{
@@ -135,7 +135,7 @@ p#errors{
 }
 
 .sidebar #burger {
-    display: block;
+    display: none;
     margin: 15px 0;
     background-color: #1a320f;
     color: #d8e5c6;
@@ -168,8 +168,8 @@ p#errors{
 
 /*.controls{
     display: none;
-}
-*/
+}*/
+
 .btn-delete {
     width: 100%;
     margin: 15px 0;
