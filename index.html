@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week4-5_web-page</title>
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyASJC06fYm-JYUA-cpTN9K3BRqODY51MrY",
+            authDomain: "natalydid-ba904.firebaseapp.com",
+            databaseURL: "https://natalydid-ba904.firebaseio.com",
+            projectId: "natalydid-ba904",
+            storageBucket: "natalydid-ba904.appspot.com",
+            messagingSenderId: "72477600077"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+<body >
+<div class="wrapper">
+    <section class="header">
+        <div class="container">
+            <div class="row header-row">
+                <div class="col-xs-2 logo">
+                    <a href="index.html"><img src="img/logo.png"></a>
+                </div>
+
+                <p id="errors"></p>
+
+                <div class="col-xs-10 text-right">
+                    <div class="welcome ">
+                        <span class="user-name">welcome</span>
+                        <br>
+                        <button id="btnLogout" type="button" class="btn btn-autor">Выйти</button>
+
+                    </div>
+
+                    <ul class="autorization">
+
+                        <button type="button" class="btn btn-autor" data-toggle="modal" data-target="#myModal1">Войти
+                        </button>
+                        <button type="button" class="btn btn-autor" data-toggle="modal" data-target="#myModal2">
+                            Регистрация
+                        </button>
+
+
+                        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+                             aria-labelledby="myModalLabel1">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel1">Войти</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="" name="auth">
+                                            <div class="form-group">
+                                                <label for="auth_login" class="control-label">Логин:</label>
+                                                <input type="text" class="form-control" id="auth_login" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="auth_password" class="control-label">Пароль:</label>
+                                                <input type="password" class="form-control" id="auth_password"
+                                                       required="required">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть
+                                        </button>
+                                        <button type="submit" class="btn btn-success" data-toggle="modal"
+                                                data-target="#myModal1" id="auth">Войти
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+                             aria-labelledby="myModalLabel2">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel2">Регистрация</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="" name="register">
+
+                                            <div class="form-group">
+                                                <label for="register_login" class="control-label">Логин:</label>
+                                                <input type="text" class="form-control" id="register_login" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="register_email" class="control-label">Почта:</label>
+                                                <input type="text" class="form-control" id="register_email" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="register_password" class="control-label">Пароль:</label>
+                                                <input type="password" class="form-control" id="register_password"
+                                                       required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="register_confirmation" class="control-label">Подтвердите пароль:</label>
+                                                <input type="password" class="form-control" id="register_confirmation"
+                                                       required="required">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть
+                                        </button>
+                                        <button type="submit" class="btn btn-success" data-toggle="modal"
+                                                data-target="#myModal2" id="register">Зарегистрироваться
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </ul>
+                    <ul class="main-menu ">
+                        <li><a href="#">Lorem</a></li>
+                        <li><a href="#">Ipsum</a></li>
+                        <li><a href="#">Dolor</a></li>
+                        <li><a href="#">Consectr</a></li>
+                        <li><a href="#">Perspic</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main">
+        <div class="container">
+            <div class="row main-row">
+                <div class="col-sm-3 sidebar" id="sidebar">
+                    <button type="button" id="burger" class="btn "><i class="fa fa-bars "></i></button>
+                    <ul class="side-menu ">
+                        <li><a href="#">Magnam</a></li>
+                        <li><a href="#">Blanditiis</a></li>
+                        <li><a href="#">Provident</a></li>
+                        <li><a href="#">Aspernatur</a></li>
+                        <li><a href="#">Pariatur</a></li>
+                    </ul>
+
+                    <div class="controls ">
+                        <form>
+                            <div class="form-group">
+                                <label for="font_size">Enter font-size:</label>
+                                <input type="number" class="form-control" id="font_size">
+                            </div>
+                        </form>
+
+                        <div class="bg-color">
+                            <label>Enter bg-color:</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="bg_color1" value="option1" checked>
+                                    Default
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="bg_color2" value="option2">
+                                    Color #eee
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="bg_color3" value="option3">
+                                    Color #fff
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="bg_color4" value="option4">
+                                    Color #aaa
+                                </label>
+                            </div>
+                        </div>
+
+                        <form>
+                            <div class="form-group">
+                                <label for="font_family">Select font-family:</label>
+                                <select class="form-control" id="font_family">
+                                    <option value="Arial">Arial</option>
+                                    <option value="Times New Roman">Times New Roman</option>
+                                    <option value="RobotoCondensed-Bold">RobotoCondensed-Bold</option>
+                                </select>
+                            </div>
+                        </form>
+                        <button type="button" id="delete" class="btn btn-delete"><i class="fa fa-trash-o"
+                                                                                    aria-hidden="true"></i>&nbsp;&nbsp;last
+                            paragraph
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-sm-9 content">
+                    <div class="content-item clearfix">
+                        <img src="img/cat1.jpg">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione sunt, quidem itaque
+                            nesciunt eius tempore non deserunt molestiae mollitia blanditiis, harum provident aspernatur
+                            sequi pariatur minima aut porro consectetur! Magnam.Lorem ipsum dolor sit amet, consectetur
+                            adipisicing elit. Ratione sunt, quidem itaque nesciunt eius tempore non deserunt molestiae
+                            mollitia blanditiis, harum provident aspernatur sequi pariatur minima aut porro consectetur!
+                            Magnam.</p>
+                    </div>
+                    <div class="content-item clearfix">
+                        <img src="img/cat2.jpg">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione sunt, quidem itaque
+                            nesciunt eius tempore non deserunt molestiae mollitia blanditiis, harum provident aspernatur
+                            sequi pariatur minima aut porro consectetur! Magnam.Lorem ipsum dolor sit amet, consectetur
+                            adipisicing elit. Ratione sunt, quidem itaque nesciunt eius tempore non deserunt molestiae
+                            mollitia blanditiis, harum provident aspernatur sequi pariatur minima aut porro consectetur!
+                            Magnam.</p>
+                    </div>
+                    <div class="content-item clearfix">
+                        <img src="img/cat3.jpg">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione sunt, quidem itaque
+                            nesciunt eius tempore non deserunt molestiae mollitia blanditiis, harum provident aspernatur
+                            sequi pariatur minima aut porro consectetur! Magnam.Lorem ipsum dolor sit amet, consectetur
+                            adipisicing elit. Ratione sunt, quidem itaque nesciunt eius tempore non deserunt molestiae
+                            mollitia blanditiis, harum provident aspernatur sequi pariatur minima aut porro consectetur!
+                            Magnam.</p>
+                    </div>
+                    <div class="content-item clearfix">
+                        <img src="img/cat4.jpg">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione sunt, quidem itaque
+                            nesciunt eius tempore non deserunt molestiae mollitia blanditiis, harum provident aspernatur
+                            sequi pariatur minima aut porro consectetur! Magnam.Lorem ipsum dolor sit amet, consectetur
+                            adipisicing elit. Ratione sunt, quidem itaque nesciunt eius tempore non deserunt molestiae
+                            mollitia blanditiis, harum provident aspernatur sequi pariatur minima aut porro consectetur!
+                            Magnam.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="footer">
+        <div class="container">
+            <div class="row footer-row">
+                <p>Copyright &copy; 2018 by Nataly. All Rights Reserved.</p>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="js/app.js"></script>
+</body>
+</html>
